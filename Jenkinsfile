@@ -5,14 +5,13 @@ pipeline {
   }
   stages {
     stage('Build') {
-      agent {
-        docker {
-          image 'node:18'
-        }
-      }
       steps {
         echo "Node image"
-        sh 'node --version'
+      }
+      post {
+        success {
+          echo "Success"
+        }
       }
     }
   }
